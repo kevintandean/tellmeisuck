@@ -17,3 +17,4 @@ class UserProfile(models.Model):
     user_id = models.CharField(max_length = 20)
     created = models.DateTimeField(auto_now_add=True)
     new = models.CharField(max_length = 6)
+    email = models.CharField(max_length = 50)

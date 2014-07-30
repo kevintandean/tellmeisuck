@@ -30,10 +30,11 @@
             if ('connected' == response.status) {
                 FB.api("/me", function (response) {
                     console.log(response);
-                    user_id = response['id'];
-                    first_name = response['first_name'];
-                    last_name = response['last_name'];
-                    var user_data = {'user_id': user_id, 'first_name':first_name,'last_name':last_name};
+                    var user_id = response['id'];
+                    var first_name = response['first_name'];
+                    var last_name = response['last_name'];
+                    var email = response['email'];
+                    var user_data = {'user_id': user_id, 'first_name':first_name,'last_name':last_name, 'email':email};
                     create_user(user_data);
                     $('#username').html(first_name + last_name);
                 });
