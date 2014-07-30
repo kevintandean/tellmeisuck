@@ -40,7 +40,27 @@ function getCookie(name) {
     return cookieValue;
 }
 var csrftoken = getCookie('csrftoken');
+var me;
+
 console.log(csrftoken);
+    function create_post(id){
+        var data={'author':me, 'recipient':id};
+        var jsondata=JSON.stringify(data);
+        $.ajax({
+            url:'/post/',
+            type:'GET',
+            dataType: 'html',
+            success: function(response){
+                console.log(response);
+                $('#post').html(response);
+                $('#id_').val(id);
+                $('#id_author_id').val(me);
+                $('#postForm').modal();
+
+            }
+                }
+        )
+    }
 
     function create_user(data){
         var jsondata = JSON.stringify(data);
@@ -58,6 +78,7 @@ console.log(csrftoken);
             if ('connected' == response.status) {
                 FB.api("/me", function (response) {
                     console.log(response);
+                    me = response['id'];
                     var user_id = response['id'];
                     var first_name = response['first_name'];
                     var last_name = response['last_name'];
@@ -89,7 +110,11 @@ console.log(csrftoken);
             dataType:'html',
             data: data,
             success: function(response){
+                console.log(response);
                 $('#friends').append(response);
+            },
+            error: function(response){
+                console.log(response);
             }
 
         })
@@ -143,7 +168,14 @@ console.log(csrftoken);
             $('#getfriends').on('click', function () {
                 getFriends();
             });
+            $(document).on('click','#postToFriend', function(){
+                create_post($(this).data('id'));
+            });
+            $(document).on('click','#submitPost', function(){
+                submit_post();
+            })
         }})
+
 </script>
 
 <!--
@@ -179,9 +211,22 @@ console.log(csrftoken);
     </div>
 </div>
 
-<div id="username"></div>
+<div class="modal fade" id="postForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <div id="post"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-{{ postform }}
+<div id="username"></div>
 
 <div id="friends"></div>
 <span>{% csrf_token %}</span>

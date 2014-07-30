@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'main.views.login', name='login'),
-    url(r'^display_friends/', 'main.views.display_friends', name='display_friends'),
-    url(r'^create_user/', 'main.views.create_user', name = 'create_user'),
+    url(r'^display_friends/$', 'main.views.display_friends', name='display_friends'),
+    url(r'^create_user/$', 'main.views.create_user', name = 'create_user'),
+    url(r'^post/$', 'main.views.post', name = 'post'),
 )
