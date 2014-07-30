@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facebook Login JavaScript Example</title>
+    <meta charset="UTF-8">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<script>
+
+    function create_user(data){
+        var jsondata = JSON.stringify(data);
+        $.ajax({
+            url:'/create_user/',
+            type: 'POST',
+            data: jsondata,
+            dataType: 'json',
+        })
+    }
+
+    {#    check status#}
+    function Status() {
+        FB.getLoginStatus(function (response) {
+            if ('connected' == response.status) {
+                FB.api("/me", function (response) {
+                    console.log(response);
+                    user_id = response['id'];
+                    first_name = response['first_name'];
+                    last_name = response['last_name'];
+                    var user_data = {'user_id': user_id, 'first_name':first_name,'last_name':last_name};
+                    create_user(user_data);
+                    $('#username').html(first_name + last_name);
+                });
+                $('#myModal').modal('hide');
+            } else {
+                $('#myModal').modal(
+            )};
+                console.log(response)
+            }
+        )}
+    // This function is called when someone finishes with the Login using button
+    function checkLoginState() {
+        Status()
+    }
+
+    function getFriends() {
+        var data;
+        FB.api("/me/friends", function (response) {
+            data = JSON.stringify(response);
+            console.log(data);
+        $.ajax({
+            url:'/display_friends/',
+            type: 'POST',
+            dataType:'html',
+            data: data,
+            success: function(response){
+
+            }
+
+        })
+    });
+    }
+
+
+
+    // Now that we've initialized the JavaScript SDK, we call
+    // FB.getLoginStatus().  This function gets the state of the
+    // person visiting this page and can return one of three states to
+    // the callback you provide.  They can be:
+    //
+    // 1. Logged into your app ('connected')
+    // 2. Logged into Facebook, but not your app ('not_authorized')
+    // 3. Not logged into Facebook and can't tell if they are logged into
+    //    your app or not.
+    //
+    // These three cases are handled in the callback function.
+    {##}
+    {#    FB.getLoginStatus(function (response) {#}
+    {#        statusChangeCallback(response);#}
+    {#    });#}
+
+    {#    }#}
+    {#    ;#}
+
+    // Load the SDK asynchronously
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    var user_id, first_name, last_name;
+    $(document).ready(function () {
+        var id = '268058963391642';
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: id,
+                cookie: true,  // enable cookies to allow the server to access
+                // the session
+                xfbml: true,  // parse social plugins on this page
+                version: 'v2.0' // use version 2.0
+            });
+            Status();
+
+            $('#getfriends').on('click', function () {
+                getFriends();
+            });
+        }})
+</script>
+
+<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+
+
+<div id="status">
+</div>
+
+<button id="getfriends">get friends</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <fb:login-button scope="public_profile,email, user_friends" onlogin="checkLoginState();">
+                </fb:login-button>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="username"></div>
+
+{{ postform }}
+
+</body>
+</html>
