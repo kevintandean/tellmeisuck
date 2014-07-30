@@ -1,5 +1,5 @@
 # from django.core.serializers import json
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 import json
 
 # Create your views here.
@@ -13,14 +13,15 @@ def login(request):
     data = {'postform':form}
     return render(request,'login.html', data)
 
-@csrf_exempt
+# @csrf_exempt
 def display_friends(request):
     if request.method == 'POST':
         print "yeay"
         data = json.loads(request.body)['data']
-        print data
+        datas_dict = {}
+        return render_to_response('friends.html',{'data':data})
 
-@csrf_exempt
+# @csrf_exempt
 def create_user(request):
     if request.method == 'POST':
         data = json.loads(request.body)
