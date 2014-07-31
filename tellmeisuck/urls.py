@@ -14,4 +14,5 @@ urlpatterns = patterns('',
     url(r'^create_user/$', 'main.views.create_user', name = 'create_user'),
     url(r'^post/$', 'main.views.post', name = 'post'),
     url(r'^get_post/(?P<user_id>\w+)/$', 'main.views.get_post', name = 'get_post'),
+    url(r'^check_new_post/(?P<user_id>\w+)/(?P<post_id>\w+)/$', 'main.views.check_new_post', name = 'check_new_post'),
 )

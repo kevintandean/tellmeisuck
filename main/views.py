@@ -7,6 +7,16 @@ from django.views.decorators.csrf import csrf_exempt
 from main.forms import PostForm
 from main.models import UserProfile, Post
 
+def check_new_post(request, user_id, post_id):
+    user = UserProfile.objects.get(user_id=user_id)
+    print user
+    posts = Post.objects.filter(id__gt=post_id, recipient=user)
+    if len(posts)==0:
+        return
+    else:
+        return render(request,'display_post.html', {'posts':posts})
+
+
 
 def login(request):
     form = PostForm()
@@ -46,6 +56,6 @@ def post(request):
 def get_post(request, user_id):
     user = UserProfile.objects.get(user_id=user_id)
     print user
-    posts = Post.objects.filter(recipient=user)
+    posts = Post.objects.filter(recipient=user).order_by('-created')
     print posts
     return render(request,'display_post.html', {'posts':posts})

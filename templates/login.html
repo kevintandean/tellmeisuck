@@ -42,6 +42,7 @@ function getCookie(name) {
 var csrftoken = getCookie('csrftoken');
 var me;
 
+
     function get_post(id){
         $.ajax({
             url: '/get_post/'+id,
@@ -50,6 +51,24 @@ var me;
             success: function(response){
                 console.log(response);
                 $('#posts').html(response);
+                $('.post').fadeIn('fast');
+                var latest = $('#posts').children().first().data('id');
+                console.log(latest);
+                (function check_new_post (id,latest){
+                    $.ajax({
+                        url: '/check_new_post/'+id+'/'+latest,
+                        type: 'GET',
+                        dataType:'html',
+                        success: function(response){
+                            console.log(response);
+                            $('#posts').prepend(response);
+                            $('.post').fadeIn('fast');
+                        },
+                        complete: function(){
+                            var updated = $('#posts').children().first().data('id');
+                            setTimeout(function(){check_new_post(id,updated)}, 2000);
+                        }})
+                })(id,latest)
             }
         })
     }
@@ -199,10 +218,11 @@ var me;
                 var bad = ($(this).siblings('#id_bad').val());
                 var data={author : author, recipient: recipient, good: good, bad: bad};
                 submit_post(data);
-            })
+            });
             $(document).on('click', '#getposts', function(){
                 get_post(me)
-            })
+
+            });
             $(document).on('click', '#logout', function(){
                 FB.logout()
             })
