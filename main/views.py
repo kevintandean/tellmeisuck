@@ -9,7 +9,6 @@ from main.models import UserProfile, Post
 
 def check_new_post(request, user_id, post_id):
     user = UserProfile.objects.get(user_id=user_id)
-    print user
     posts = Post.objects.filter(id__gt=post_id, recipient=user)
     if len(posts)==0:
         return
@@ -42,11 +41,11 @@ def post(request):
         data = json.loads(request.body)
         print json.loads(request.body)
         author = UserProfile.objects.get(user_id=data['author'])
-        print author
+        # print author
         recipient = UserProfile.objects.get(user_id=data['recipient'])
-        print recipient
+        # print recipient
         Post.objects.create(author=author, recipient=recipient, good=data['good'], bad = data['bad'])
-        print "yeay"
+        # print "yeay"
 
     else:
         form = PostForm()

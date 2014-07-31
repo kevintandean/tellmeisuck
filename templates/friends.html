@@ -6,8 +6,11 @@
 {#</head>#}
 {#<body>#}
 {% for item in data %}
+    <div>
     <a id="postToFriend" data-name="{{ item.name }}" data-id="{{ item.id }}"><span>{{ item.name }}</span>
     <span>{{ item.id }}</span></a>
+    </div>
+
 {% endfor %}
 {##}
 {#</body>#}
