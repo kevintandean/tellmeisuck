@@ -42,7 +42,18 @@ function getCookie(name) {
 var csrftoken = getCookie('csrftoken');
 var me;
 
-console.log(csrftoken);
+    function get_post(id){
+        $.ajax({
+            url: '/get_post/'+id,
+            type: 'GET',
+            dataType: 'html',
+            success: function(response){
+                console.log(response);
+                $('#posts').html(response);
+            }
+        })
+    }
+
     function create_post(id){
         var data={'author':me, 'recipient':id};
         var jsondata=JSON.stringify(data);
@@ -53,13 +64,24 @@ console.log(csrftoken);
             success: function(response){
                 console.log(response);
                 $('#post').html(response);
-                $('#id_').val(id);
-                $('#id_author_id').val(me);
+                $('#id_recipient').val(id);
+                $('#id_author').val(me);
                 $('#postForm').modal();
 
             }
                 }
         )
+    }
+
+    function submit_post(data){
+        console.log(data);
+        var jsondata = JSON.stringify(data);
+        $.ajax({
+            url:'/post/',
+            type: 'POST',
+            dataType: 'json',
+            data: jsondata
+        })
     }
 
     function create_user(data){
@@ -116,7 +138,6 @@ console.log(csrftoken);
             error: function(response){
                 console.log(response);
             }
-
         })
     });
     }
@@ -172,7 +193,18 @@ console.log(csrftoken);
                 create_post($(this).data('id'));
             });
             $(document).on('click','#submitPost', function(){
-                submit_post();
+                var author = ($(this).siblings('#id_author').val());
+                var recipient = ($(this).siblings('#id_recipient').val());
+                var good = ($(this).siblings('#id_good').val());
+                var bad = ($(this).siblings('#id_bad').val());
+                var data={author : author, recipient: recipient, good: good, bad: bad};
+                submit_post(data);
+            })
+            $(document).on('click', '#getposts', function(){
+                get_post(me)
+            })
+            $(document).on('click', '#logout', function(){
+                FB.logout()
             })
         }})
 
@@ -189,6 +221,8 @@ console.log(csrftoken);
 </div>
 
 <button id="getfriends">get friends</button>
+<button id="getposts">get posts</button>
+<button id="logout">logout</button>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -230,5 +264,6 @@ console.log(csrftoken);
 
 <div id="friends"></div>
 <span>{% csrf_token %}</span>
+<div id="posts"></div>
 </body>
 </html>

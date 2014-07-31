@@ -8,8 +8,6 @@ class Post(models.Model):
     bad = models.TextField(null=True)
     created = models.DateTimeField(auto_now_add=True)
 
-    def __unicode__(self):
-        return self.author_name
 
 class UserProfile(models.Model):
     first_name = models.CharField(max_length = 20)
@@ -18,3 +16,6 @@ class UserProfile(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     new = models.CharField(max_length = 6)
     email = models.CharField(max_length = 50)
+
+    def __unicode__(self):
+        return self.first_name

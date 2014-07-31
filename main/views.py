@@ -5,7 +5,7 @@ import json
 # Create your views here.
 from django.views.decorators.csrf import csrf_exempt
 from main.forms import PostForm
-from main.models import UserProfile
+from main.models import UserProfile, Post
 
 
 def login(request):
@@ -29,11 +29,23 @@ def create_user(request):
 
 def post(request):
     if request.method=='POST':
+        data = json.loads(request.body)
         print json.loads(request.body)
+        author = UserProfile.objects.get(user_id=data['author'])
+        print author
+        recipient = UserProfile.objects.get(user_id=data['recipient'])
+        print recipient
+        Post.objects.create(author=author, recipient=recipient, good=data['good'], bad = data['bad'])
+        print "yeay"
 
     else:
         form = PostForm()
 
     return render(request,'form.html',{'form':form})
 
-
+def get_post(request, user_id):
+    user = UserProfile.objects.get(user_id=user_id)
+    print user
+    posts = Post.objects.filter(recipient=user)
+    print posts
+    return render(request,'display_post.html', {'posts':posts})
