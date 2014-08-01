@@ -2,6 +2,9 @@
  * Created by kevin on 7/31/2014.
  */
 
+
+// Not sure if you're using this file as well as index.js but there seems to be some code that could
+// be shared instead of copy/pasted.
 function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
