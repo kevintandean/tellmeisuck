@@ -30,7 +30,7 @@ function getCookie(name) {
 }
 var csrftoken = getCookie('csrftoken');
 var me;
-
+var keep_looping;
 
 function get_post(id) {
     $.ajax({
@@ -38,8 +38,10 @@ function get_post(id) {
         type: 'GET',
         dataType: 'html',
         success: function (response) {
+//            keep_looping = id;
             console.log(response);
-            $('#posts').html(response);
+            $('#user_post').html(response);
+            $('.post').fadeOut('fast');
             $('.post').fadeIn('fast');
             var latest = $('#posts').children().first().data('id');
             console.log(latest);
@@ -50,14 +52,18 @@ function get_post(id) {
                     dataType: 'html',
                     success: function (response) {
                         console.log(response);
+
                         $('#posts').prepend(response);
                         $('.post').fadeIn('fast');
                     },
                     complete: function () {
                         var updated = $('#posts').children().first().data('id');
+                        console.log(updated);
                         setTimeout(function () {
-                            check_new_post(id, updated)
-                        }, 5000);
+                            if (keep_looping == id) {
+                                check_new_post(id, updated)
+                            }
+                        }, 10000);
                     }})
             })(id, latest)
         }
@@ -122,8 +128,7 @@ function Status() {
                 });
                 $('#myModal').modal('hide');
             } else {
-                $('#myModal').modal(
-                )
+                $('#myModal').modal({backdrop:'static'})
             };
 
 //            console.log(response)
@@ -183,6 +188,7 @@ $(document).ready(function () {
             getFriends();
         });
         $(document).on('click', '#postToFriend', function () {
+            $('#target').text('What do you have to say about '+ $(this).data('name') + '?');
             create_post($(this).data('id'));
         });
         $(document).on('click', '#submitPost', function () {
@@ -192,11 +198,26 @@ $(document).ready(function () {
             var bad = ($(this).siblings('#id_bad').val());
             var data = {author: author, recipient: recipient, good: good, bad: bad};
             submit_post(data);
+            $('#postForm').modal('hide');
         });
         $(document).on('click', '#getposts', function () {
             get_post(me)
 
         });
+        $(document).on('click', '.view_profile', function() {
+//            keep_looping = false;
+            if($(this).hasClass('inactive')){
+                return false;
+            }
+            else {
+                var user_id = $(this).data('id');
+                $(this).addClass('inactive');
+                $(this).siblings().removeClass('inactive');
+                console.log(user_id);
+                keep_looping = user_id;
+                get_post(user_id);
+            }
+        })
         $(document).on('click', '#logout', function () {
             FB.logout()
         })

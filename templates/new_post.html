@@ -1,0 +1,21 @@
+
+{% if posts|length == 0 %}
+    <div class="post" data-id="0" style="display:none">
+        <p>No feedback yet</p>
+    </div>
+{% else %}
+
+
+
+    {% for post in posts %}
+        <div class='post row' style= "display:none;" data-id="{{ post.id }}">
+            <div class='goodbad col-md-6'
+                 style="background-color: {% cycle '#d9edf7' '#CCDFE8' %}; border-radius: 0.5em 0.5em; display:inline-flex"><p style="margin:10px">{{ post.good }}</p></div>
+            <div class='goodbad col-md-6'
+                 style="background-color: {% cycle '#f2dede' '#E5D4D4' %}; border-radius: 0.5em 0.5em; display:inline-flex"><p style="margin:10px">{{ post.bad }}</p></div>
+            {#<p>{{ post.created }}</p>#}
+        </div>
+
+    {% endfor %}
+
+{% endif %}

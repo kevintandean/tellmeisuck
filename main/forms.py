@@ -8,8 +8,8 @@ class PostForm(ModelForm):
     recipient = forms.CharField(widget=forms.HiddenInput(), required=False)
     # author_name = forms.CharField(widget=forms.HiddenInput(), required=False)
     # recipient_name = forms.CharField(widget=forms.HiddenInput(), required=False)
-    good = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'good', 'class':"form-control"}))
-    bad = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'bad', 'class':"form-control"}))
+    good = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'The Good...', 'class':"form-control"}))
+    bad = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'The Bad...', 'class':"form-control"}))
 
     class Meta:
         model = Post

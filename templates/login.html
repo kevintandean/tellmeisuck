@@ -9,44 +9,59 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <script src="{% static 'js/index.js' %}"></script>
-{#    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">#}
+    {#    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">#}
 
-<style type="text/css">
-    html, body {
-    height: 100%;
+    <style type="text/css">
+        html, body {
+            height: 100%;
+        }
+
+        .row-fluid {
+            height: 100%;
+        }
+
+        .column:before, .column:after {
+            content: "";
+            display: table;
+        }
+
+        .column:after {
+            clear: both;
+        }
+
+        .column {
+            height: 100%;
+            overflow-y: scroll;
+            overflow-x:hidden;
+{#            word-break:break-all;#}
+        }
+
+        .box {
+            bottom: 0; /* increase for footer use */
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 52px;
+        }
+
+        .full {
+            width: 100%;
+        }
+        .view_profile:hover{
+            background-color: #bf3e11;
+        }
+  .row{
+    overflow: hidden;
 }
+  .navbar{
+      border-radius: 0px;
+  }
 
-.row-fluid {
-    height: 100%;
+[class*="goodbad"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
 }
-
-.column:before, .column:after {
-    content: "";
-    display: table;
-}
-
-.column:after {
-    clear: both;
-}
-
-.column {
-    height: 100%;
-    overflow: auto;
-}
-
-.box {
-    bottom: 0; /* increase for footer use */
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 100px;
-}
-
-.full {
-    width: 100%;
-}
-</style>
-
+    </style>
 
 
 </head>
@@ -65,65 +80,75 @@
         </div>
 
 
-
-        <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-
-                <li><a href="javascript: void(0)" id="member1" data-contentwrapper=".mycontent" rel="popover"
-                       class="btn navbar-btn btn-success">Post<span class="caret"></span></a></li>
-
-                <li><a href="" class="btn navbar-btn btn-default">Home</a>
-                </li>
-                <li>
+{#        <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">#}
+{#            <ul class="nav navbar-nav">#}
+{##}
+{#                <li><a href="javascript: void(0)" id="member1" data-contentwrapper=".mycontent" rel="popover"#}
+{#                       class="btn navbar-btn btn-success">Post<span class="caret"></span></a></li>#}
+{##}
+{#                <li><a href="" class="btn navbar-btn btn-default">Home</a>#}
+{#                </li>#}
+{#                <li>#}
                     {#                    <div class="btn navbar-btn btn-group" style="padding-top:0px">#}
-                    <a type="button" class="btn navbar-btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        Account <span class="caret"></span>
-                    </a>
-{#                    <ul class="dropdown-menu" role="menu" style="border-radius:0 0 0 5px">#}
-{#                        <li><a href="{% url 'view_profile' user.username %}">Profile</a></li>#}
-{#                        <li><a href="{% url 'edit_profile' %}">Edit Profile</a></li>#}
-{#                        <li class="divider"></li>#}
-{#                        <li><a href="{% url 'logout' %}">Logout</a></li>#}
+{#                    <a type="button" class="btn navbar-btn btn-default dropdown-toggle" data-toggle="dropdown">#}
+{#                        Account <span class="caret"></span>#}
+{#                    </a>#}
+                    {#                    <ul class="dropdown-menu" role="menu" style="border-radius:0 0 0 5px">#}
+                    {#                        <li><a href="{% url 'view_profile' user.username %}">Profile</a></li>#}
+                    {#                        <li><a href="{% url 'edit_profile' %}">Edit Profile</a></li>#}
+                    {#                        <li class="divider"></li>#}
+                    {#                        <li><a href="{% url 'logout' %}">Logout</a></li>#}
+                    {##}
+                    {##}
+                    {#                    </ul>#}
+{##}
+{#                </li>#}
 {##}
 {##}
-{#                    </ul>#}
-
-                </li>
-
-
-            </ul>
-        </div>
+{#            </ul>#}
+{#        </div>#}
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
 </nav>
 
 <div class="container">
-    <div class="box">
-  <div class="row-fluid">
-    <div class="column col-md-5" style="background-color: red">
-    <div id="friends"></div>
-     <!-- left-side --->
+{#    <div class="row">#}
+{#        <div class="col-md-8 col-md-offset-2">#}
+            <div class="box">
+                <div class="row-fluid">
+
+                    <div class="column col-md-2" style="background-color: #3b3b3b; padding:20px">
+                        <div class="row">
+                            <div class="col-md-12">
+                        <div id="friends"></div>
+                        </div>
+                        <!-- left-side --->
+                        </div>
+                    </div>
+                    <div class="column col-md-8" style="background-color: #eeeeee">
+
+                        <div id="user_post" style="margin-top: 20px">
+                        </div>
+                        <!-- right-side --->
+                    </div>
+
+                </div>
+{#            </div>#}
+{#        </div>#}
+                    <button id="logout">logout</button>
+                <button id="share">share</button>
 
     </div>
-    <div class="column col-md-7" style="background-color: blue">
-    <div id="posts"></div>
-     <!-- right-side --->
-
-    </div>
-  </div>
-</div>
-<div id="status">
-</div>
-
-<button id="getfriends">get friends</button>
-<button id="getposts">get posts</button>
-<button id="logout">logout</button>
-
-    <div id="username"></div>
-{#<div id="friends"></div>#}
-{#<span>{% csrf_token %}</span>#}
-{#<div id="posts"></div>#}
+{#    <div id="status"></div>#}
+{##}
+{#    <button id="getfriends">get friends</button>#}
+{#    <button id="getposts">get posts</button>#}
+{##}
+{#    <div id="username"></div>#}
+    {#<div id="friends"></div>#}
+    {#<span>{% csrf_token %}</span>#}
+    {#<div id="posts"></div>#}
 
 </div>
 
@@ -131,19 +156,17 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <fb:login-button scope="public_profile,email, user_friends" onlogin="checkLoginState();">
-                </fb:login-button>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-                        class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
+{#            <div class="modal-header">#}
+{##}
+{#                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span#}
+{#                        class="sr-only">Close</span></button>#}
+{#                <h4 class="modal-title" id="myModalLabel">Modal title</h4>#}
+{#            </div>#}
             <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+{#                <fb:login-button scope="public_profile,email, user_friends" onlogin="checkLoginState();">#}
+{#                </fb:login-button>#}
+                <span>Please connect through Faceboook, we will never post without your permission!</span>
+                <div class="fb-login-button" scope="public_profile,email, user_friends" onlogin="checkLoginState()" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
             </div>
         </div>
     </div>
@@ -156,7 +179,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
                         class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 class="modal-title" id="target"></h4>
             </div>
             <div class="modal-body">
                 <div id="post"></div>
@@ -164,7 +187,6 @@
         </div>
     </div>
 </div>
-
 
 
 </body>

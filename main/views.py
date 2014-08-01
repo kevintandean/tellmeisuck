@@ -9,11 +9,12 @@ from main.models import UserProfile, Post
 
 def check_new_post(request, user_id, post_id):
     user = UserProfile.objects.get(user_id=user_id)
-    posts = Post.objects.filter(id__gt=post_id, recipient=user)
+    posts = Post.objects.filter(id__gt=post_id, recipient=user).order_by('-id')
+    print posts
     if len(posts)==0:
         return
     else:
-        return render(request,'display_post.html', {'posts':posts})
+        return render(request,'new_post.html', {'posts':posts})
 
 
 
@@ -39,13 +40,12 @@ def create_user(request):
 def post(request):
     if request.method=='POST':
         data = json.loads(request.body)
-        print json.loads(request.body)
         author = UserProfile.objects.get(user_id=data['author'])
-        # print author
+        print author
         recipient = UserProfile.objects.get(user_id=data['recipient'])
         # print recipient
         Post.objects.create(author=author, recipient=recipient, good=data['good'], bad = data['bad'])
-        # print "yeay"
+        print "yeay"
 
     else:
         form = PostForm()
@@ -54,7 +54,7 @@ def post(request):
 
 def get_post(request, user_id):
     user = UserProfile.objects.get(user_id=user_id)
-    print user
     posts = Post.objects.filter(recipient=user).order_by('-created')
-    print posts
-    return render(request,'display_post.html', {'posts':posts})
+    first_name = user.first_name
+    last_name = user.last_name
+    return render(request,'display_post.html', {'posts':posts, 'first_name':first_name, 'last_name':last_name, 'user_id':user_id})
