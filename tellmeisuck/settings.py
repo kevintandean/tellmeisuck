@@ -84,6 +84,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Shouldn't have your static and template files in your main directory, they should be inside of apps
+# This may cause issues when you deploy to Heroku
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),)
 
