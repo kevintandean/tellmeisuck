@@ -106,7 +106,10 @@ function create_user(data) {
         url: '/create_user/',
         type: 'POST',
         data: jsondata,
-        dataType: 'json',
+        dataType: 'html',
+        success: function(response){
+            $('#friends').prepend(response);
+        }
     })
 }
 
@@ -123,12 +126,15 @@ function Status() {
                     var user_data = {'user_id': user_id, 'first_name': first_name, 'last_name': last_name, 'email': email};
                     create_user(user_data);
                     getFriends()
+//                    $('.me').data('id')=
                     if ($('#redirect').text()!='none'){
-                        get_post($('#redirect').text());
                         console.log('yeay');
                         var name = ($('#hidden_name').text());
                         $('#target').text('What do you have to say about '+ name + '?');
                         create_post($('#redirect').text());
+                        keep_looping = $('#redirect').text();
+                        get_post($('#redirect').text());
+
                     }
                     else {
                         get_post(me);

@@ -76,38 +76,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="">WhatILearn.com</a>
+            <a class="navbar-brand" href="">Feedback.me</a>
         </div>
 
-
-{#        <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">#}
-{#            <ul class="nav navbar-nav">#}
-{##}
-{#                <li><a href="javascript: void(0)" id="member1" data-contentwrapper=".mycontent" rel="popover"#}
-{#                       class="btn navbar-btn btn-success">Post<span class="caret"></span></a></li>#}
-{##}
-{#                <li><a href="" class="btn navbar-btn btn-default">Home</a>#}
-{#                </li>#}
-{#                <li>#}
-                    {#                    <div class="btn navbar-btn btn-group" style="padding-top:0px">#}
-{#                    <a type="button" class="btn navbar-btn btn-default dropdown-toggle" data-toggle="dropdown">#}
-{#                        Account <span class="caret"></span>#}
-{#                    </a>#}
-                    {#                    <ul class="dropdown-menu" role="menu" style="border-radius:0 0 0 5px">#}
-                    {#                        <li><a href="{% url 'view_profile' user.username %}">Profile</a></li>#}
-                    {#                        <li><a href="{% url 'edit_profile' %}">Edit Profile</a></li>#}
-                    {#                        <li class="divider"></li>#}
-                    {#                        <li><a href="{% url 'logout' %}">Logout</a></li>#}
-                    {##}
-                    {##}
-                    {#                    </ul>#}
-{##}
-{#                </li>#}
-{##}
-{##}
-{#            </ul>#}
-{#        </div>#}
-        <!-- /.navbar-collapse -->
+         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+{#        <li><a href="#">Get Feedback</a></li>#}
+      </ul>
+             </div>
     </div>
     <!-- /.container -->
 </nav>
@@ -132,12 +108,16 @@
                         </div>
                         <!-- right-side --->
                     </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-block btn-primary" style="margin-top: 50px; margin-bottom:50px" id="share">Get Feedback!</button>
+                    <div class="fb-like-box" data-href="https://www.facebook.com/FacebookDevelopers" data-width="200px" data-height="400px" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+                    </div>
 
                 </div>
 {#            </div>#}
 {#        </div>#}
-                    <button id="logout">logout</button>
-                <button id="share">share</button>
+{#                    <button id="logout">logout</button>#}
+{#                <button id="share">share</button>#}
 
     </div>
 {#    <div id="status"></div>#}

@@ -40,7 +40,8 @@ def create_user(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         UserProfile.objects.get_or_create(first_name=data['first_name'], last_name=data['last_name'], user_id=data['user_id'], email=data['email'], new='true')
-        print data
+        data['name']=data['first_name']+ ' ' + data['last_name']
+        return render(request, 'me.html', {'data':data})
 
 def post(request):
     if request.method=='POST':
