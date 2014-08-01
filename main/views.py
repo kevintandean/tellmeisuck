@@ -12,12 +12,13 @@ def check_new_post(request, user_id, post_id):
     posts = Post.objects.filter(id__gt=post_id, recipient=user).order_by('-id')
     print posts
     if len(posts)==0:
+        # This should probably return an empty string at least?
         return
     else:
         return render(request,'new_post.html', {'posts':posts})
 
 
-
+# Should be using Django's built in Auth functionality, guessing it wasn't working well with your custom UserProfile model
 def login(request):
     form = PostForm()
     data = {'hidden':'none'}
@@ -40,6 +41,7 @@ def create_user(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         UserProfile.objects.get_or_create(first_name=data['first_name'], last_name=data['last_name'], user_id=data['user_id'], email=data['email'], new='true')
+        # use string.format() here instead of adding strings
         data['name']=data['first_name']+ ' ' + data['last_name']
         return render(request, 'me.html', {'data':data})
 
