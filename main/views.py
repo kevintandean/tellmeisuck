@@ -46,6 +46,7 @@ def create_user(request):
         return render(request, 'me.html', {'data':data})
 
 def post(request):
+    # Why not use the PostForm to save if you're passing it to the template to display
     if request.method=='POST':
         data = json.loads(request.body)
         author = UserProfile.objects.get(user_id=data['author'])
