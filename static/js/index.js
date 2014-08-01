@@ -59,6 +59,8 @@ function get_post(id) {
                     complete: function () {
                         var updated = $('#posts').children().first().data('id');
                         console.log(updated);
+                        // There should be a way to get an ID from either setTimeout or setInterval that you can use
+                        // to clearInterval/clearTimeout instead of this check you made
                         setTimeout(function () {
                             if (keep_looping == id) {
                                 check_new_post(id, updated)
@@ -119,10 +121,12 @@ function Status() {
                 FB.api("/me", function (response) {
                     console.log(response);
                     me = response['id'];
+                    // Bunch of unnecessary code, could just use response['first_name'] to pass this to user_data
                     var user_id = response['id'];
                     var first_name = response['first_name'];
                     var last_name = response['last_name'];
                     var email = response['email'];
+                    // Shouldn't mind underscore (python) syntax with camelcase (javascript)
                     var user_data = {'user_id': user_id, 'first_name': first_name, 'last_name': last_name, 'email': email};
                     create_user(user_data);
                     getFriends()
