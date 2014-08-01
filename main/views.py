@@ -20,8 +20,13 @@ def check_new_post(request, user_id, post_id):
 
 def login(request):
     form = PostForm()
-    data = {'postform':form}
+    data = {'hidden':'none'}
     return render(request,'login.html', data)
+
+def login_redirect(request, user_id):
+    user = UserProfile.objects.get(user_id=user_id)
+    data = {'hidden': user_id, 'name':user.first_name+ ' ' +user.last_name}
+    return render(request, 'login.html', data)
 
 # @csrf_exempt
 def display_friends(request):

@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/main/views.py" description="@csrf_exempt" line="32" />
+    <bookmark url="file://$PROJECT_DIR$/main/views.py" description="@csrf_exempt" line="37" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f3a2b3d-917b-4ac3-a192-7ab1b0e82b0b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/images/facebook_logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/new_post.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/display_post.html" afterPath="$PROJECT_DIR$/templates/display_post.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/form.html" afterPath="$PROJECT_DIR$/templates/form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/forms.py" afterPath="$PROJECT_DIR$/main/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/friends.html" afterPath="$PROJECT_DIR$/templates/friends.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/link.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/index.js" afterPath="$PROJECT_DIR$/static/js/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login.html" afterPath="$PROJECT_DIR$/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tellmeisuck/urls.py" afterPath="$PROJECT_DIR$/tellmeisuck/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/views.py" afterPath="$PROJECT_DIR$/main/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -49,26 +45,40 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="login.html" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/templates/login.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-5.0333333" vertical-offset="2768" max-vertical-offset="4158">
-                  <caret line="139" column="40" selection-start-line="139" selection-start-column="40" selection-end-line="139" selection-end-column="40" />
+                <state vertical-scroll-proportion="-2.4803371" vertical-offset="3865" max-vertical-offset="4221">
+                  <caret line="142" column="29" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#span#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/static/js/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.060941827" vertical-offset="4304" max-vertical-offset="4872">
-                  <caret line="206" column="14" selection-start-line="206" selection-start-column="14" selection-end-line="206" selection-end-column="14" />
+                <state vertical-scroll-proportion="-12.035714" vertical-offset="4661" max-vertical-offset="5166">
+                  <caret line="238" column="2" selection-start-line="238" selection-start-column="2" selection-end-line="238" selection-end-column="2" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="link.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/js/link.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="4893">
+                  <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#7173#7213#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -118,8 +128,8 @@
           <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tellmeisuck/urls.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
-                  <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="94" max-vertical-offset="525">
+                  <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
                   <folding>
                     <element signature="e#0#51#0" expanded="true" />
                   </folding>
@@ -201,8 +211,8 @@
           <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5631068" vertical-offset="692" max-vertical-offset="1365">
-                  <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+                <state vertical-scroll-proportion="0.33251834" vertical-offset="410" max-vertical-offset="1470">
+                  <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
                   <folding>
                     <element signature="e#43#98#0" expanded="true" />
                   </folding>
@@ -228,15 +238,16 @@
         <option value="$PROJECT_DIR$/local_settings.py" />
         <option value="$PROJECT_DIR$/main/admin.py" />
         <option value="$PROJECT_DIR$/main/models.py" />
-        <option value="$PROJECT_DIR$/tellmeisuck/urls.py" />
         <option value="$PROJECT_DIR$/tellmeisuck/settings.py" />
         <option value="$PROJECT_DIR$/templates/new_post.html" />
         <option value="$PROJECT_DIR$/templates/display_post.html" />
         <option value="$PROJECT_DIR$/templates/friends.html" />
         <option value="$PROJECT_DIR$/main/forms.py" />
+        <option value="$PROJECT_DIR$/templates/form.html" />
+        <option value="$PROJECT_DIR$/static/js/link.js" />
+        <option value="$PROJECT_DIR$/tellmeisuck/urls.py" />
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/main/views.py" />
-        <option value="$PROJECT_DIR$/templates/form.html" />
         <option value="$PROJECT_DIR$/static/js/index.js" />
       </list>
     </option>
@@ -663,7 +674,11 @@
       <created>1406838247124</created>
       <updated>1406838247124</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix the worker bug">
+      <created>1406885979574</created>
+      <updated>1406885979574</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -680,7 +695,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40079364" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4047619" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -734,14 +749,15 @@
     <MESSAGE value="added view to get all post" />
     <MESSAGE value="get auto refresh to work! newsfeed with facebook style update!" />
     <MESSAGE value="added some skeleton structure to the html" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some skeleton structure to the html" />
+    <MESSAGE value="fix the worker bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix the worker bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/static/js/index.js</url>
-          <line>226</line>
+          <line>240</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="django-line">
@@ -778,16 +794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tellmeisuck/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tellmeisuck/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1470" max-vertical-offset="2184">
@@ -800,14 +806,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
           <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="546">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -871,34 +869,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0333333" vertical-offset="2768" max-vertical-offset="4158">
-          <caret line="139" column="40" selection-start-line="139" selection-start-column="40" selection-end-line="139" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5631068" vertical-offset="692" max-vertical-offset="1365">
-          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
-          <folding>
-            <element signature="e#43#98#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="441">
           <caret line="11" column="81" selection-start-line="11" selection-start-column="81" selection-end-line="11" selection-end-column="81" />
           <folding>
             <element signature="e#21#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/link.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="4893">
+          <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
+          <folding>
+            <element signature="e#7173#7213#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tellmeisuck/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="94" max-vertical-offset="525">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -911,11 +907,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="546">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33251834" vertical-offset="410" max-vertical-offset="1470">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+          <folding>
+            <element signature="e#43#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.060941827" vertical-offset="4304" max-vertical-offset="4872">
-          <caret line="206" column="14" selection-start-line="206" selection-start-column="14" selection-end-line="206" selection-end-column="14" />
+        <state vertical-scroll-proportion="-12.035714" vertical-offset="4661" max-vertical-offset="5166">
+          <caret line="238" column="2" selection-start-line="238" selection-start-column="2" selection-end-line="238" selection-end-column="2" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4803371" vertical-offset="3865" max-vertical-offset="4221">
+          <caret line="142" column="29" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

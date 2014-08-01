@@ -122,17 +122,9 @@ function Status() {
                     var email = response['email'];
                     var user_data = {'user_id': user_id, 'first_name': first_name, 'last_name': last_name, 'email': email};
                     create_user(user_data);
-                    getFriends()
-                    if ($('#redirect').text()!='none'){
-                        get_post($('#redirect').text());
-                        console.log('yeay');
-                        var name = ($('#hidden_name').text());
-                        $('#target').text('What do you have to say about '+ name + '?');
-                        create_post($('#redirect').text());
-                    }
-                    else {
-                        get_post(me);
-                    }
+                    $('#username').html(first_name + last_name);
+                    getFriends();
+                    get_post(me);
                 });
                 $('#myModal').modal('hide');
             } else {
@@ -229,12 +221,9 @@ $(document).ready(function () {
         $(document).on('click', '#logout', function () {
             FB.logout()
         })
-        $(document).on('click', '#share', function () {
-            FB.ui({
-  method: 'share',
-  href: 'http://b1655d2.ngrok.com/user/'+me,
-}, function(response){});
-        })
     }
 })
 
+/**
+ * Created by kevin on 8/1/2014.
+ */
