@@ -63,7 +63,7 @@ function get_post(id) {
                             if (keep_looping == id) {
                                 check_new_post(id, updated)
                             }
-                        }, 10000);
+                        }, 5000);
                     }})
             })(id, latest)
         }
