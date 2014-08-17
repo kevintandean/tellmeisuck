@@ -2,6 +2,7 @@
  * Created by kevin on 7/31/2014.
  */
 
+//CSRF token to allow secure ajax request to server
 function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -32,6 +33,7 @@ var csrftoken = getCookie('csrftoken');
 var me;
 var keep_looping;
 
+//getting POST for whatever user according to ID
 function get_post(id) {
     $.ajax({
         url: '/get_post/' + id,
@@ -70,6 +72,7 @@ function get_post(id) {
     })
 }
 
+//displaying modal popup, this doesn't actually submit
 function create_post(id) {
     var data = {'author': me, 'recipient': id};
     var jsondata = JSON.stringify(data);
@@ -89,6 +92,7 @@ function create_post(id) {
     )
 }
 
+//this send ajax request to server to save the post
 function submit_post(data) {
     console.log(data);
     var jsondata = JSON.stringify(data);
@@ -100,6 +104,7 @@ function submit_post(data) {
     })
 }
 
+//displaying logged user on the left panel
 function create_user(data) {
     var jsondata = JSON.stringify(data);
     $.ajax({
@@ -113,6 +118,7 @@ function create_user(data) {
     })
 }
 
+//check facebook authentication status
 function Status() {
     FB.getLoginStatus(function (response) {
             if ('connected' == response.status) {
@@ -125,7 +131,7 @@ function Status() {
                     var email = response['email'];
                     var user_data = {'user_id': user_id, 'first_name': first_name, 'last_name': last_name, 'email': email};
                     create_user(user_data);
-                    getFriends()
+                    getFriends();
 //                    $('.me').data('id')=
                     if ($('#redirect').text()!='none'){
                         console.log('yeay');
@@ -154,6 +160,7 @@ function checkLoginState() {
     Status()
 }
 
+//display friends that are using the app on left panel
 function getFriends() {
     var data;
     FB.api("/me/friends", function (response) {
@@ -185,9 +192,9 @@ function getFriends() {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-var user_id, first_name, last_name;
+//var user_id, first_name, last_name;
 $(document).ready(function () {
-    var id = '268058963391642';
+    var id = '268058963391642'; //Facebook app id
     window.fbAsyncInit = function () {
         FB.init({
             appId: id,
@@ -198,13 +205,16 @@ $(document).ready(function () {
         });
         Status();
 
-        $('#getfriends').on('click', function () {
-            getFriends();
-        });
+        //used during development
+//        $('#getfriends').on('click', function () {
+//            getFriends();
+//        });
+
         $(document).on('click', '#postToFriend', function () {
             $('#target').text('What do you have to say about '+ $(this).data('name') + '?');
             create_post($(this).data('id'));
         });
+
         $(document).on('click', '#submitPost', function () {
             var author = ($(this).siblings('#id_author').val());
             var recipient = ($(this).siblings('#id_recipient').val());
@@ -214,6 +224,8 @@ $(document).ready(function () {
             submit_post(data);
             $('#postForm').modal('hide');
         });
+
+        //get profile of current user
         $(document).on('click', '#getposts', function () {
             get_post(me)
 
@@ -231,15 +243,19 @@ $(document).ready(function () {
                 keep_looping = user_id;
                 get_post(user_id);
             }
-        })
+        });
+
         $(document).on('click', '#logout', function () {
             FB.logout()
-        })
+        });
+
         $(document).on('click', '#share', function () {
             FB.ui({
   method: 'share',
-  href: 'http://b1655d2.ngrok.com/user/'+me,
-}, function(response){});
+  href: 'http://floating-reaches-9711.herokuapp.com/'+me
+}, function(response){
+//                console.log(response)
+            });
         })
     }
 })
